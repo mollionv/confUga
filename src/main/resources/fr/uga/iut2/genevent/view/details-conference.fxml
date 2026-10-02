@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<VBox xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.uga.iut2.genevent.controller.DetailsConferenceController">
+
+    <HBox alignment="CENTER_LEFT" styleClass="dialog-header-bar">
+        <Label styleClass="brand" text="Détail de la conférence" />
+    </HBox>
+
+    <HBox alignment="CENTER_LEFT">
+        <padding><Insets bottom="12.0" left="24.0" right="24.0" top="12.0" /></padding>
+        <Button fx:id="retourBtn" onAction="#actionButtonCancel" text="Retour" />
+        <Region HBox.hgrow="ALWAYS" />
+        <Label fx:id="nomConferenceLabel" styleClass="title" text="Nom conférence" />
+        <Region HBox.hgrow="ALWAYS" />
+        <Button fx:id="modifierBtn" onAction="#actionButtonModifierConf" text="Modifier les détails de la conférence" />
+        <Button fx:id="supprimerConfBtn" onAction="#actionSupprimerConf" styleClass="icon-button">
+            <HBox.margin><Insets left="8.0" /></HBox.margin>
+            <graphic>
+                <SVGPath content="M6 19c0 1.1 .9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z" styleClass="icon-trash" />
+            </graphic>
+            <tooltip>
+                <Tooltip text="Supprimer la conférence" />
+            </tooltip>
+        </Button>
+    </HBox>
+
+    <Separator />
+
+    <HBox alignment="CENTER_LEFT">
+        <padding><Insets bottom="12.0" left="24.0" right="24.0" top="12.0" /></padding>
+        <VBox spacing="4.0" HBox.hgrow="ALWAYS">
+            <Label fx:id="datePeriodeLabel" text="Date début - Date fin" />
+            <Label fx:id="descriptionLabel" text="Description" wrapText="true" />
+        </VBox>
+        <HBox alignment="CENTER_RIGHT" spacing="16.0">
+            <Button fx:id="telechargerBtn" onAction="#actionTelecharger" styleClass="icon-button">
+                <graphic>
+                    <SVGPath content="M5 20h14v-2H5v2zM19 9h-4V3H9v6H5l7 7 7-7z" styleClass="icon-download" />
+                </graphic>
+                <tooltip>
+                    <Tooltip text="Télécharger le calendrier (.ics)" />
+                </tooltip>
+            </Button>
+            <HBox alignment="CENTER" spacing="4.0">
+                <Label text="Prix :" />
+                <Label fx:id="prixLabel" text="X€" />
+            </HBox>
+        </HBox>
+    </HBox>
+
+    <Separator />
+
+    <HBox alignment="CENTER_LEFT">
+        <padding><Insets bottom="12.0" left="24.0" right="24.0" top="12.0" /></padding>
+        <Label fx:id="programmeTitreLabel" styleClass="section-title" text="Programme" />
+        <Region HBox.hgrow="ALWAYS" />
+        <Button fx:id="ajouterSessionBtn" onAction="#actionButtonOpenNewSession" text="+ Ajouter une session" />
+    </HBox>
+
+    <Separator />
+
+    <StackPane VBox.vgrow="ALWAYS">
+
+        <VBox fx:id="vueJournee">
+            <GridPane fx:id="enteteJournee" hgap="8.0">
+                <padding><Insets left="16.0" right="16.0" top="8.0" /></padding>
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="7.0" />
+                    <ColumnConstraints percentWidth="93.0" />
+                </columnConstraints>
+            </GridPane>
+            <StackPane VBox.vgrow="ALWAYS">
+                <ScrollPane fx:id="scrollJournee" fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED">
+                    <GridPane fx:id="grilleJournee" hgap="8.0" vgap="8.0">
+                        <padding><Insets bottom="8.0" left="16.0" right="16.0" top="8.0" /></padding>
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="7.0" />
+                            <ColumnConstraints percentWidth="93.0" />
+                        </columnConstraints>
+                    </GridPane>
+                </ScrollPane>
+
+                <Button fx:id="flecheHautJournee" onAction="#actionDefilerHautJournee" styleClass="nav-arrow" text="▲" visible="false" StackPane.alignment="TOP_CENTER">
+                    <StackPane.margin><Insets top="8.0" /></StackPane.margin>
+                </Button>
+                <Button fx:id="flecheBasJournee" onAction="#actionDefilerBasJournee" styleClass="nav-arrow" text="▼" visible="false" StackPane.alignment="BOTTOM_CENTER">
+                    <StackPane.margin><Insets bottom="8.0" /></StackPane.margin>
+                </Button>
+                <Label fx:id="messageAucuneSessionLabel" text="Aucune session n'a été ajoutée à la conférence.">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+            </StackPane>
+        </VBox>
+
+        <VBox fx:id="vueSemaine" managed="false" visible="false">
+            <GridPane fx:id="enteteSemaine" hgap="8.0">
+                <padding><Insets left="16.0" right="16.0" top="8.0" /></padding>
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="7.0" />
+                    <ColumnConstraints percentWidth="31.0" />
+                    <ColumnConstraints percentWidth="31.0" />
+                    <ColumnConstraints percentWidth="31.0" />
+                </columnConstraints>
+            </GridPane>
+            <StackPane VBox.vgrow="ALWAYS">
+                <ScrollPane fx:id="scrollSemaine" fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED">
+                    <GridPane fx:id="grilleSemaine" hgap="8.0" vgap="8.0">
+                        <padding><Insets bottom="8.0" left="16.0" right="16.0" top="8.0" /></padding>
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="7.0" />
+                            <ColumnConstraints percentWidth="31.0" />
+                            <ColumnConstraints percentWidth="31.0" />
+                            <ColumnConstraints percentWidth="31.0" />
+                        </columnConstraints>
+                    </GridPane>
+                </ScrollPane>
+
+                <Button fx:id="flecheHautSemaine" onAction="#actionDefilerHautSemaine" styleClass="nav-arrow" text="▲" visible="false" StackPane.alignment="TOP_CENTER">
+                    <StackPane.margin><Insets top="8.0" /></StackPane.margin>
+                </Button>
+                <Button fx:id="flecheBasSemaine" onAction="#actionDefilerBasSemaine" styleClass="nav-arrow" text="▼" visible="false" StackPane.alignment="BOTTOM_CENTER">
+                    <StackPane.margin><Insets bottom="8.0" /></StackPane.margin>
+                </Button>
+                <Button fx:id="flecheGaucheSemaine" onAction="#actionJoursPrecedents" styleClass="nav-arrow" text="←" visible="false" StackPane.alignment="CENTER_LEFT">
+                    <StackPane.margin><Insets left="8.0" /></StackPane.margin>
+                </Button>
+                <Button fx:id="flecheDroiteSemaine" onAction="#actionJoursSuivants" styleClass="nav-arrow" text="→" visible="false" StackPane.alignment="CENTER_RIGHT">
+                    <StackPane.margin><Insets right="8.0" /></StackPane.margin>
+                </Button>
+            </StackPane>
+        </VBox>
+
+    </StackPane>
+
+</VBox>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox styleClass="list-page" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.uga.iut2.genevent.controller.GestionBatimentsController">
+
+    <HBox alignment="CENTER_LEFT" spacing="16.0" styleClass="app-header">
+        <ImageView fitHeight="60.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@logo.png" />
+            </image>
+        </ImageView>
+        <Region HBox.hgrow="ALWAYS" />
+        <Button fx:id="newBatimentBtn" mnemonicParsing="false" onAction="#actionButtonOpenNewBat" styleClass="confirm-button" text="Nouveau bâtiment" />
+    </HBox>
+
+    <HBox alignment="CENTER_LEFT" styleClass="page-head">
+        <VBox spacing="2.0">
+            <Label styleClass="title" text="Bâtiments" />
+            <Label styleClass="muted" text="Créer, modifier, gérer les bâtiments et leurs espaces de réunion" />
+        </VBox>
+    </HBox>
+
+    <ScrollPane fitToWidth="true" styleClass="cards-scroll" VBox.vgrow="ALWAYS">
+        <FlowPane fx:id="batimentContainer" alignment="TOP_CENTER" columnHalignment="CENTER" hgap="20.0" vgap="20.0">
+            <padding><Insets bottom="30.0" left="30.0" right="30.0" top="30.0" /></padding>
+        </FlowPane>
+    </ScrollPane>
+
+</VBox>

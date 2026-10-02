@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane fitToWidth="true" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.uga.iut2.genevent.controller.EspaceReunionController">
+<VBox prefWidth="560.0" spacing="0.0">
+
+    <Label maxWidth="Infinity" styleClass="dialog-header" text="Ajouter un espace de réunion" />
+
+    <VBox spacing="16.0" styleClass="form-card">
+        <VBox.margin>
+            <Insets bottom="8.0" left="24.0" right="24.0" top="24.0" />
+        </VBox.margin>
+
+        <Label styleClass="section-title" text="IDENTIFICATION" />
+
+        <VBox spacing="6.0">
+            <Label styleClass="field-label" text="Numéro de l'espace de réunion *" />
+            <TextField fx:id="numeroField" promptText="Ex: 210" />
+        </VBox>
+
+        <VBox spacing="6.0">
+            <Label styleClass="field-label" text="Type d'espace de réunion *" />
+            <HBox spacing="24.0">
+                <RadioButton fx:id="typeSalleRadio" mnemonicParsing="false" selected="true" text="Salle">
+                    <toggleGroup>
+                        <ToggleGroup fx:id="typeGroup" />
+                    </toggleGroup>
+                </RadioButton>
+                <RadioButton fx:id="typeAmphiRadio" mnemonicParsing="false" text="Amphithéâtre" toggleGroup="$typeGroup" />
+            </HBox>
+        </VBox>
+
+        <VBox fx:id="groupeNomAmphitheatre" disable="true" spacing="6.0">
+            <Label styleClass="field-label" text="Nom de l'amphithéâtre *" />
+            <TextField fx:id="nomAmphitheatre" promptText="Ex: Vercors" />
+        </VBox>
+
+        <VBox spacing="6.0">
+            <Label styleClass="field-label" text="Capacité max. de l'espace de réunion *" />
+            <TextField fx:id="capaciteField" promptText="Ex: 60" />
+        </VBox>
+
+        <Separator />
+
+        <Label styleClass="section-title" text="ÉQUIPEMENTS" />
+
+        <HBox spacing="10.0">
+            <VBox maxWidth="Infinity" spacing="6.0" HBox.hgrow="ALWAYS">
+                <Label styleClass="field-label" text="Nombre de vidéoprojecteurs *" />
+                <TextField fx:id="videoprojecteursField" promptText="Ex: 2" />
+            </VBox>
+            <VBox maxWidth="Infinity" spacing="6.0" HBox.hgrow="ALWAYS">
+                <Label styleClass="field-label" text="Nombre d'ordinateurs *" />
+                <TextField fx:id="ordinateursField" prefHeight="26.0" prefWidth="189.0" promptText="Ex: 3" />
+            </VBox>
+        </HBox>
+
+        <HBox spacing="10.0">
+            <VBox maxWidth="Infinity" spacing="6.0" HBox.hgrow="ALWAYS">
+                <Label styleClass="field-label" text="Système de sonorisation *" />
+                <HBox spacing="24.0">
+                    <RadioButton fx:id="sonoOuiRadio" mnemonicParsing="false" selected="true" text="Oui">
+                        <toggleGroup>
+                            <ToggleGroup fx:id="sonoGroup" />
+                        </toggleGroup>
+                    </RadioButton>
+                    <RadioButton fx:id="sonoNonRadio" mnemonicParsing="false" text="Non" toggleGroup="$sonoGroup" />
+                </HBox>
+            </VBox>
+            <VBox maxWidth="Infinity" spacing="6.0" HBox.hgrow="ALWAYS">
+                <Label styleClass="field-label" text="Nombre microphones *" />
+                <TextField fx:id="microphonesField" promptText="Ex: 2" />
+            </VBox>
+        </HBox>
+
+        <Separator />
+
+        <Label styleClass="section-title" text="TARIFICATION" />
+
+        <HBox spacing="10.0">
+            <VBox maxWidth="Infinity" spacing="6.0" HBox.hgrow="ALWAYS">
+                <Label styleClass="field-label" text="Tarif horaire (€/h) *" />
+                <TextField fx:id="tarifField" promptText="Ex: 70" />
+            </VBox>
+        </HBox>
+
+        <Label styleClass="hint" text="* Champs obligatoires" />
+    </VBox>
+
+    <HBox spacing="12.0">
+        <VBox.margin>
+            <Insets bottom="24.0" left="24.0" right="24.0" top="16.0" />
+        </VBox.margin>
+
+        <Region HBox.hgrow="ALWAYS" />
+
+        <Button fx:id="annulerBtn" mnemonicParsing="false" onAction="#actionButtonCancel" styleClass="cancel-button" text="Annuler" />
+        <Button fx:id="ajouterBtn" mnemonicParsing="false" onAction="#actionButtonAddEspace" styleClass="confirm-button" text="+ Ajouter l'espace de réunion" />
+    </HBox>
+
+</VBox>
+</ScrollPane>

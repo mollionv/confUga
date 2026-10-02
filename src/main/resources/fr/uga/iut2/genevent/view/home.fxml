@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox styleClass="list-page" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.uga.iut2.genevent.controller.HomeController">
+
+    <HBox alignment="CENTER_LEFT" spacing="16.0" styleClass="app-header">
+        <ImageView fitHeight="60.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@logo.png" />
+            </image>
+        </ImageView>
+        <Region HBox.hgrow="ALWAYS" />
+        <Button fx:id="manageBuildings" mnemonicParsing="false" onAction="#actionButtonOpenBatiment" styleClass="cancel-button" text="Gestion espaces de réunions" />
+        <Button fx:id="newConference" mnemonicParsing="false" onAction="#actionButtonOpenNewConf" styleClass="confirm-button" text="Nouvelle conférence" />
+    </HBox>
+
+    <HBox alignment="CENTER_LEFT" styleClass="page-head">
+        <VBox spacing="2.0">
+            <Label styleClass="title" text="Mes conférences" />
+            <Label styleClass="muted" text="Créer et gérer les conférences" />
+        </VBox>
+    </HBox>
+
+    <ScrollPane fitToWidth="true" styleClass="cards-scroll" VBox.vgrow="ALWAYS">
+        <FlowPane fx:id="conferencesContainer" alignment="TOP_CENTER" columnHalignment="CENTER" hgap="20.0" prefWidth="750.0" vgap="20.0">
+            <padding><Insets bottom="30.0" left="30.0" right="30.0" top="30.0" /></padding>
+        </FlowPane>
+    </ScrollPane>
+
+</VBox>

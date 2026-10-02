@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane fitToWidth="true" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.uga.iut2.genevent.controller.SessionController">
+<VBox prefWidth="560.0" spacing="0.0">
+
+   <Label fx:id="nomSession" maxWidth="Infinity" styleClass="dialog-header" text="Nouvelle session" />
+
+   <VBox spacing="16.0" styleClass="form-card">
+      <VBox.margin>
+         <Insets bottom="8.0" left="24.0" right="24.0" top="24.0" />
+      </VBox.margin>
+
+      <Label styleClass="section-title" text="INFORMATIONS" />
+
+      <VBox spacing="6.0">
+         <Label styleClass="field-label" text="Titre *" />
+         <TextField fx:id="titreSessionField" promptText="Ex: Programmation orientée objet" />
+      </VBox>
+
+      <VBox spacing="6.0">
+         <Label styleClass="field-label" text="Intervenant(s) *" />
+         <TextField fx:id="intervenantsSessionField" promptText="Ex: Hervé Blanchon" />
+      </VBox>
+
+      <Separator />
+
+      <Label styleClass="section-title" text="LIEU ET HORAIRES" />
+
+      <HBox alignment="CENTER" spacing="10.0">
+         <VBox spacing="6.0" HBox.hgrow="ALWAYS">
+            <Label styleClass="field-label" text="Bâtiment *" />
+            <ComboBox fx:id="selectBatimentSession" maxWidth="Infinity" onAction="#actionSelectBatiment" prefWidth="500.0" promptText="Choisir bâtiment" />
+         </VBox>
+         <VBox spacing="6.0" HBox.hgrow="ALWAYS">
+            <Label styleClass="field-label" text="Espace réunion *" />
+            <ComboBox fx:id="selectEspaceReunionSession" maxWidth="Infinity" prefWidth="500.0" promptText="Choisir espace réunion" />
+         </VBox>
+      </HBox>
+      <VBox spacing="6.0">
+         <Label styleClass="field-label" text="Date *" />
+         <DatePicker fx:id="dateSession" maxWidth="Infinity" onAction="#actionSelectDate" prefWidth="500.0" promptText="Ex: 05/06/26" />
+      </VBox>
+
+      <HBox alignment="CENTER" spacing="10.0">
+         <VBox spacing="6.0" HBox.hgrow="ALWAYS">
+            <Label styleClass="field-label" text="Heure de début *" />
+            <HBox alignment="CENTER_LEFT" spacing="6.0">
+               <ComboBox fx:id="selectHeureDebut" prefWidth="90.0" promptText="HH" onAction="#actionHoraire" />
+               <Label text=":" />
+               <ComboBox fx:id="selectMinuteDebut" prefWidth="90.0" promptText="mm" onAction="#actionHoraire" />
+            </HBox>
+         </VBox>
+         <VBox spacing="6.0" HBox.hgrow="ALWAYS">
+            <Label styleClass="field-label" text="Heure de fin *" />
+            <HBox alignment="CENTER_LEFT" spacing="6.0">
+               <ComboBox fx:id="selectHeureFin" prefWidth="90.0" promptText="HH" onAction="#actionHoraire" />
+               <Label text=":" />
+               <ComboBox fx:id="selectMinuteFin" prefWidth="90.0" promptText="mm" onAction="#actionHoraire" />
+            </HBox>
+         </VBox>
+      </HBox>
+
+      <Label styleClass="hint" text="* Champs obligatoires" />
+   </VBox>
+
+   <HBox spacing="12.0">
+      <VBox.margin>
+         <Insets bottom="24.0" left="24.0" right="24.0" top="16.0" />
+      </VBox.margin>
+
+      <Button fx:id="supprimerSessionBtn" managed="false" onAction="#actionButtonSupprimer" styleClass="danger-button" text="Supprimer" visible="false" />
+
+      <Region HBox.hgrow="ALWAYS" />
+
+      <Button fx:id="annulerSessionBtn" onAction="#actionButtonCancel" styleClass="cancel-button" text="Annuler" />
+      <Button fx:id="ajouterSessionBtn" onAction="#actionButtonAddSession" styleClass="confirm-button" text="Ajouter" />
+   </HBox>
+
+</VBox>
+</ScrollPane>

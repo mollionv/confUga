@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane fitToWidth="true" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.uga.iut2.genevent.controller.EditBatimentController">
+<VBox prefWidth="560.0" spacing="0.0">
+
+    <Label fx:id="nomBatiment" maxWidth="Infinity" styleClass="dialog-header" text="Ajouter un bâtiment" />
+
+   <VBox spacing="16.0" styleClass="form-card">
+      <VBox.margin>
+         <Insets bottom="8.0" left="24.0" right="24.0" top="24.0" />
+      </VBox.margin>
+
+      <Label styleClass="section-title" text="INFORMATIONS DU BÂTIMENT" />
+
+      <VBox spacing="6.0">
+         <Label styleClass="field-label" text="Nom du bâtiment *" />
+         <TextField fx:id="nomBatimentField" promptText="Ex: Bâtiment Doyen Gosse - IUT2 Grenoble" />
+      </VBox>
+
+      <VBox spacing="6.0">
+         <Label styleClass="field-label" text="Adresse postale *" />
+         <TextField fx:id="adresseBatimentField" promptText="Ex: 2 Pl. Doyen Gosse" />
+      </VBox>
+      <HBox spacing="10.0">
+         <VBox maxWidth="Infinity" spacing="6.0" HBox.hgrow="ALWAYS">
+            <Label styleClass="field-label" text="Ville *" />
+            <TextField fx:id="villeBatimentField" prefWidth="500.0" promptText="Ex: Grenoble" />
+         </VBox>
+         <VBox maxWidth="Infinity" spacing="6.0" HBox.hgrow="ALWAYS">
+            <Label styleClass="field-label" text="Code postal *" />
+            <TextField fx:id="codePostalBatimentField" prefWidth="500.0" promptText="Ex: 38000" />
+         </VBox>
+      </HBox>
+
+      <Label styleClass="hint" text="* Champs obligatoires" />
+   </VBox>
+
+   <VBox spacing="14.0" styleClass="form-card">
+      <VBox.margin>
+         <Insets bottom="8.0" left="24.0" right="24.0" top="8.0" />
+      </VBox.margin>
+
+      <Label styleClass="section-title" text="ESPACES DE RÉUNION" />
+      <Label styleClass="hint" text="Espaces présents dans ce bâtiment :" />
+
+      <GridPane fx:id="gridPaneEspacesReunion" hgap="16.0" vgap="12.0">
+        <columnConstraints>
+          <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" minWidth="10.0" />
+          <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" />
+        </columnConstraints>
+      </GridPane>
+
+      <Button fx:id="ajouterEspaceReunionBatiment" maxWidth="Infinity" onAction="#actionButtonOpenNewEspace" styleClass="cancel-button" text="+ Ajouter un espace de réunion" />
+   </VBox>
+
+   <HBox spacing="12.0">
+      <VBox.margin>
+         <Insets bottom="24.0" left="24.0" right="24.0" top="16.0" />
+      </VBox.margin>
+
+      <Region HBox.hgrow="ALWAYS" />
+
+      <Button fx:id="annulerBatimentBtn" onAction="#actionButtonCancel" styleClass="cancel-button" text="Annuler" />
+      <Button fx:id="ajouterBatimentBtn" onAction="#actionButtonAddBat" styleClass="confirm-button" text="Ajouter" />
+   </HBox>
+
+</VBox>
+</ScrollPane>

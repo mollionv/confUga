@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane fitToWidth="true" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.uga.iut2.genevent.controller.AddConferenceController">
+<VBox prefWidth="560.0" spacing="0.0">
+
+    <Label fx:id="titreFormConferenceLabel" maxWidth="Infinity" styleClass="dialog-header" text="Ajouter une conférence" />
+
+    <VBox spacing="16.0" styleClass="form-card">
+        <VBox.margin>
+            <Insets bottom="8.0" left="24.0" right="24.0" top="24.0" />
+        </VBox.margin>
+
+        <VBox spacing="6.0">
+            <Label styleClass="field-label" text="Titre de la conférence *" />
+            <TextField fx:id="titreField" promptText="Ex: Journée d'étude - Axe IA 2026" />
+        </VBox>
+
+        <VBox spacing="6.0">
+            <Label styleClass="field-label" text="Nom du demandeur *" />
+            <TextField fx:id="nomDemandeurField" promptText="Ex: Hervé Blanchon" />
+        </VBox>
+
+        <VBox spacing="6.0">
+            <Label styleClass="field-label" text="Description de la conférence *" />
+            <TextArea fx:id="descriptionArea" prefHeight="120.0" promptText="Résumé ou informations..." wrapText="true" />
+        </VBox>
+
+        <Label styleClass="hint" text="* Champs obligatoires" />
+    </VBox>
+
+    <VBox spacing="14.0" styleClass="form-card">
+        <VBox.margin>
+            <Insets bottom="8.0" left="24.0" right="24.0" top="8.0" />
+        </VBox.margin>
+
+        <Label styleClass="section-title" text="SESSIONS" />
+        <Label styleClass="hint" text="Sessions de cette conférence :" />
+
+        <GridPane fx:id="gridPaneSessions" hgap="16.0" vgap="12.0">
+            <columnConstraints>
+                <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" minWidth="10.0" />
+                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" />
+            </columnConstraints>
+        </GridPane>
+
+        <Button fx:id="ajouterSessionBtn" maxWidth="Infinity" onAction="#actionButtonOpenNewSession" styleClass="cancel-button" text="+ Ajouter une session" />
+    </VBox>
+
+    <HBox spacing="12.0">
+        <VBox.margin>
+            <Insets bottom="24.0" left="24.0" right="24.0" top="16.0" />
+        </VBox.margin>
+
+        <Region HBox.hgrow="ALWAYS" />
+
+        <Button fx:id="annulerBtn" onAction="#actionButtonCancel" styleClass="cancel-button" text="Annuler" />
+        <Button fx:id="ajouterConferenceBtn" onAction="#actionButtonAddConf" styleClass="confirm-button" text="+ Ajouter conférence" />
+    </HBox>
+
+</VBox>
+</ScrollPane>
